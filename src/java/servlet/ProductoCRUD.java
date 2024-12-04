@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Producto;
 
 public class ProductoCRUD extends HttpServlet {
+    
 
     DaoProducto daoProducto = new DaoProducto();
 
@@ -26,8 +27,9 @@ public class ProductoCRUD extends HttpServlet {
             request.getRequestDispatcher("listar.jsp").forward(request, response);
 
         } else {
-            // Maneja el caso donde 'accion' es null o no coincide
-            response.sendRedirect("index.jsp"); // o muestra un mensaje de error
+            List<Producto> productos = daoProducto.seleccionar();
+            request.setAttribute("productos", productos);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
     }

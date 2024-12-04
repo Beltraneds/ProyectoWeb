@@ -7,6 +7,9 @@
 <%@page import="java.util.List"%>
 <%@page import="model.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<Producto> productos = (List<Producto>) request.getAttribute("productos");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,10 +49,10 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.jsp" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Inicio</a>
+                            <a class="nav-link" href="/ProyectoWeb" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ProductoCRUD?accion=listar" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Productos</a>
+                            <a class="nav-link" href="productos?accion=listar" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Productos</a>
                         </li>
 
                         <li class="nav-item">
@@ -249,38 +252,24 @@
 
                         <div class="row">
                         <%
-                            List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-
-                            if (productos != null && !productos.isEmpty()) {
+                            if (productos != null) {
                                 for (Producto prod : productos) {
                         %>
                             <div class="col-lg-3 col-md-6 mb-4">
                                 <div class="card">
                                     <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                                          data-mdb-ripple-color="light">
-                                        <img src="https://centrale.cl/wp-content/uploads/Memoria-RAM-8GB-3200Mhz-DDR4-CL16-Corsair-Vengeance-RGB-PRO_wFjOX0l.webp"
-                                             class="w-100" />
+                                        <img src="<%= prod.getImagen() %>"
+                                             class="w-100" onerror="this.onerror=null; this.src='https://www.remab.net/wp-content/uploads/2020/08/sin_imagen.jpg';" />
 
-                                        <!-- <a href="#!">
-                                            <div class="mask">
-                                                <div class="d-flex justify-content-start align-items-end h-100">
-                                                    <h5><span class="badge bg-dark ms-2">NEW</span></h5>
-                                                </div>
-                                            </div>
-                                            <div class="hover-overlay">
-                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                        -->
                                         <div class="card-body">
                                             <a href="" class="text-reset">
                                                 <h5 class="card-title mb-2"> <%= prod.getNombre() %> </h5>
                                             </a>
                                             <a href="" class="text-reset ">
-                                                <p>Memorias</p>
+                                                <p> <%= prod.getId_categoria().getNombre_cat() %>  </p>
                                             </a>
-                                            <h6 class="mb-3 price">120$</h6>
+                                            <h6 class="mb-3 price">$<%= prod.getPrecio() %></h6>
                                         </div>
                                     </div>
                                 </div>
