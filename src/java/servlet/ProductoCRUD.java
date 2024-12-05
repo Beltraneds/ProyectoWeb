@@ -30,7 +30,7 @@ public class ProductoCRUD extends HttpServlet {
             List<Producto> productos = daoProducto.seleccionar();
             request.setAttribute("productos", productos);
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
+        }  
 
     }
 
@@ -38,6 +38,13 @@ public class ProductoCRUD extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String accion = request.getParameter("accion");
+
+        if (accion != null && accion.equals("agregar")) {
+            Producto producto = new Producto();
+            
+            producto.setNombre(request.getParameter("nombre"));
+        }
         /*String accion = request.getParameter("accion");
 
         if (accion.equals("agregar")) {

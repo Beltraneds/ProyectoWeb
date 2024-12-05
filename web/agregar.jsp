@@ -34,22 +34,22 @@
                             height="60
                             alt="Mi Logo"
                             loading="lazy"
-                        />
+                            />
                     </a>
 
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ProductoCRUD?accion=listar" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Productos</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://mdbootstrap.com/docs/standard/getting-started/installation/" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Registrarme</a>
-                    </li>
-                </ul>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.jsp" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ProductoCRUD?accion=listar" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Productos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://mdbootstrap.com/docs/standard/getting-started/installation/" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Registrarme</a>
+                        </li>
+                    </ul>
 
                     <!-- Left links -->      
                 </div>
@@ -57,7 +57,7 @@
 
                 <!-- Right elements -->
                 <div class="d-flex align-items-center">       
-                <a class="nav-link me-3" href="#">
+                    <a class="nav-link me-3" href="#">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a class="nav-link me-3" href="#">
@@ -82,7 +82,7 @@
         <main>
             <div class="container" style="margin-top: 100px">
                 <!-- Navbar -->
-                
+
                 <!-- Navbar -->
 
                 <!-- Products -->
@@ -91,6 +91,7 @@
                     <div class="row">
                         <form action="${pageContext.request.contextPath}/ProductoCRUD?accion=agregar" method="POST">
                             <input type="hidden" name="action" value="create">
+
                             <div class="mb-3">
                                 <label for="productImage" class="form-label">Imagen del Producto</label>
                                 <input type="file" class="form-control" id="productImage" name="imagen" accept="image/*" required>
@@ -101,21 +102,57 @@
                                 <label for="productName" class="form-label">Nombre del producto</label>
                                 <input type="text" class="form-control" id="productName" name="nombre" required>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="productMarca" class="form-label">Marca</label>
                                 <input type="text" class="form-control" id="productMarca" name="marca" required>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="productPrice" class="form-label">Precio del producto</label>
+                                <input type="number" class="form-control" id="productPrice" name="precio" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="productDescription" class="form-label">Descripción</label>
                                 <textarea class="form-control" id="productDescription" name="descripcion" rows="3" required></textarea>
                             </div>
-                            
+
                             <div class="mb-3">
-                                <label for="productPrice" class="form-label">Precio del producto</label>
-                                <input type="text" class="form-control" id="productPrice" name="precio" required>
+                                <label for="productCategorie" class="form-label">Categoría</label>
+                                <input type="text" class="form-control" id="productCategorie" name="categoria" required>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="productDimensions" class="form-label">Dimensiones</label>
+                                <input type="text" class="form-control" id="productDimensions" name="dimensiones" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="productStock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="productStock" name="stock" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="productCapacity" class="form-label">Capacidad</label>
+                                <input type="text" class="form-control" id="productCapacity" name="capacidad" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="productCode" class="form-label">Cod. Producto</label>
+                                <input type="text" class="form-control" id="productCode" name="cod_producto" required>
+                            </div>
+
 
                             <button type="submit" class="btn btn-primary">Agregar Producto</button>
                         </form>
