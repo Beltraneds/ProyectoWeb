@@ -95,18 +95,47 @@
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" value="<%= producto.getNombre()%>">
                 </div>
+                
                 <div class="mb-3">
                     <label for="marca" class="form-label">Marca</label>
-                    <input type="text" class="form-control" id="marca" name="marca" value="<%= producto.getMarca()%>">
+                    <input type="text" class="form-control" id="marca" name="marca" value="<%= producto.getId_marca() %>">
                 </div>
+                
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio" value="<%= producto.getPrecio()%>">
+                </div>
+                            
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción</label>
                     <textarea class="form-control" id="descripcion" name="descripcion"><%= producto.getDescripcion()%></textarea>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="precio" class="form-label">Precio</label>
-                    <input type="text" class="form-control" id="precio" name="precio" value="<%= producto.getPrecio()%>">
+                    <label for="categoria" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="categoria" name="categoria" value="<%= producto.getId_categoria()%>">
                 </div>
+                
+                <div class="mb-3">
+                    <label for="dimensiones" class="form-label">Dimensiones</label>
+                    <input type="text" class="form-control" id="dimensiones" name="dimensiones" value="<%= producto.getDimensiones()%>">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" name="stock" value="<%= producto.getStock()%>">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="capacidad" class="form-label">Capacidad</label>
+                    <input type="text" class="form-control" id="capacidad" name="capacidad" value="<%= producto.getCapacidad()%>">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="cod_producto" class="form-label">Cod. Producto</label>
+                    <input type="text" class="form-control" id="cod_producto" name="cod_producto" value="<%= producto.getCod_producto() %>">
+                </div>
+                
                 <button type="submit" class="btn btn-primary">Actualizar</button>
                 <a type="button" class="btn btn-primary" href="ProductoCRUD?accion=listar">Atras</a>
             </form>

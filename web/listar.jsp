@@ -34,22 +34,31 @@
                             height="60
                             alt="Mi Logo"
                             loading="lazy"
-                        />
+                            />
                     </a>
 
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/ProyectoWeb" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ProductoCRUD?accion=listar" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Productos</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://mdbootstrap.com/docs/standard/getting-started/installation/" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Registrarme</a>
-                    </li>
-                </ul>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/ProyectoWeb" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ProductoCRUD?accion=listar" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Productos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://mdbootstrap.com/docs/standard/getting-started/installation/" style="font-weight: bold;color: white; font-family: 'Arial', sans-serif; font-size: 16px;">Registrarme</a>
+                        </li>
+                    </ul>
+
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Large button
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
 
                     <!-- Left links -->      
                 </div>
@@ -57,7 +66,7 @@
 
                 <!-- Right elements -->
                 <div class="d-flex align-items-center">       
-                <a class="nav-link me-3" href="#">
+                    <a class="nav-link me-3" href="#">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a class="nav-link me-3" href="#">
@@ -82,7 +91,7 @@
         <main>
             <div class="container" style="margin-top: 100px">
                 <!-- Navbar -->
-                
+
                 <!-- Navbar -->
 
                 <!-- Products -->
@@ -111,22 +120,22 @@
                                     </thead>
                                     <tbody>
                                         <%
-                                            List<Producto> productos = (List<Producto>)request.getAttribute("productos");
+                                            List<Producto> productos = (List<Producto>) request.getAttribute("productos");
 
                                             for (Producto prod : productos) {
                                         %>
                                         <tr>
-                                            <td><%= prod.getId() %></td>
-                                            <td><%= prod.getNombre() %></td>                     
-                                            <td><%= prod.getId_marca() != null ? prod.getId_marca().getNombre_marca(): "Sin marca" %></td>
-                                            <td><%= prod.getPrecio() %></td>
-                                            <td><%= prod.getDescripcion() %></td>
-                                            <td><%= prod.getId_categoria() != null ? prod.getId_categoria().getNombre_cat(): "Sin categoría" %></td>
-                                            <td><%= prod.getDimensiones() %></td>
-                                            <td><%= prod.getImagen() %></td>
-                                            <td><%= prod.getStock() %></td>
-                                            <td><%= prod.getCapacidad() %></td>
-                                            <td><%= prod.getCod_producto() %></td>
+                                            <td><%= prod.getId()%></td>
+                                            <td><%= prod.getNombre()%></td>                     
+                                            <td><%= prod.getId_marca() != null ? prod.getId_marca().getNombre_marca() : "Sin marca"%></td>
+                                            <td><%= prod.getPrecio()%></td>
+                                            <td><%= prod.getDescripcion()%></td>
+                                            <td><%= prod.getId_categoria() != null ? prod.getId_categoria().getNombre_cat() : "Sin categoría"%></td>
+                                            <td><%= prod.getDimensiones()%></td>
+                                            <td><%= prod.getImagen()%></td>
+                                            <td><%= prod.getStock()%></td>
+                                            <td><%= prod.getCapacidad()%></td>
+                                            <td><%= prod.getCod_producto()%></td>
                                             <td>
                                                 <a href="ProductoCRUD?accion=editar&id=<%= prod.getId()%>" class="btn btn-warning">Editar</a>
                                                 <a href="ProductoCRUD?accion=eliminar&id=<%= prod.getId()%>" class="btn btn-danger">Eliminar</a>

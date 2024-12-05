@@ -8,10 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Categoria;
+import model.Marca;
 import model.Producto;
 
 public class ProductoCRUD extends HttpServlet {
-    
 
     DaoProducto daoProducto = new DaoProducto();
 
@@ -30,7 +31,7 @@ public class ProductoCRUD extends HttpServlet {
             List<Producto> productos = daoProducto.seleccionar();
             request.setAttribute("productos", productos);
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        }  
+        }
 
     }
 
@@ -42,9 +43,61 @@ public class ProductoCRUD extends HttpServlet {
 
         if (accion != null && accion.equals("agregar")) {
             Producto producto = new Producto();
-            
+
+            Marca marca = new Marca();
+            Categoria categoria = new Categoria();
+
             producto.setNombre(request.getParameter("nombre"));
+
+            marca.setId_marca(Integer.valueOf(request.getParameter("id_marca")));
+            producto.setId_marca(marca);
+
+            producto.setPrecio(Integer.valueOf(request.getParameter("precio")));
+            producto.setDescripcion(request.getParameter("descripcion"));
+
+            categoria.setId_categoria(Integer.valueOf(request.getParameter("id_categoria")));
+            producto.setId_categoria(categoria);
+
+            producto.setDimensiones(request.getParameter("dimensiones"));
+            producto.setImagen(request.getParameter("imagen"));
+            producto.setStock(Short.valueOf(request.getParameter("stock")));
+            producto.setCapacidad(request.getParameter("capacidad"));
+            producto.setCod_producto(request.getParameter("cod_producto"));
+
+            daoProducto.agregar(producto);
+            response.sendRedirect("ProductoCRUD?accion=listar");
+
+        } else if (accion != null && accion.equals("editar")) {
+            Marca marca = new Marca();
+            Categoria categoria = new Categoria();
+
+            int id = Integer.parseInt(request.getParameter("id"));
+            Producto producto = daoProducto.seleccionar().stream()
+                    .filter(p -> p.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+
+            if (producto != null) {
+                producto.setImagen(request.getParameter("imagen"));
+                producto.setNombre(request.getParameter("nombre"));
+
+                marca.setNombre_marca(request.getParameter("marca"));
+                producto.setId_marca(marca);
+
+                producto.setPrecio(Integer.valueOf(request.getParameter("precio")));
+                producto.setDescripcion(request.getParameter("descripcion"));
+
+                categoria.setNombre_cat(request.getParameter("categoria"));
+                producto.setId_categoria(categoria);
+
+                producto.setDimensiones(request.getParameter("dimensiones"));
+                producto.setImagen(request.getParameter("imagen"));
+                producto.setStock(Short.valueOf(request.getParameter("stock")));
+                producto.setCapacidad(request.getParameter("capacidad"));
+                producto.setCod_producto(request.getParameter("cod_producto"));
+            }
         }
+        response.sendRedirect("ProductoCRUD?accion=listar");
         /*String accion = request.getParameter("accion");
 
         if (accion.equals("agregar")) {

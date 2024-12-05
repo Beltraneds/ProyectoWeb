@@ -1,6 +1,7 @@
 <%@page import="model.Producto"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -89,7 +90,7 @@
                 <section>
                     <h2 class="text-center mb-4">Agregar Nuevo Producto</h2>
                     <div class="row">
-                        <form action="${pageContext.request.contextPath}/ProductoCRUD?accion=agregar" method="POST">
+                        <form action="ProductoCRUD?accion=agregar" method="POST">
                             <input type="hidden" name="action" value="create">
 
                             <div class="mb-3">
@@ -105,17 +106,7 @@
 
                             <div class="mb-3">
                                 <label for="productMarca" class="form-label">Marca</label>
-                                <input type="text" class="form-control" id="productMarca" name="marca" required>
-                            </div>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <input type="number" class="form-control" id="productMarca" name="id_marca" required>
                             </div>
 
                             <div class="mb-3">
@@ -130,7 +121,7 @@
 
                             <div class="mb-3">
                                 <label for="productCategorie" class="form-label">Categoría</label>
-                                <input type="text" class="form-control" id="productCategorie" name="categoria" required>
+                                <input type="number" class="form-control" id="productCategorie" name="id_categoria" required>
                             </div>
 
                             <div class="mb-3">
